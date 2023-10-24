@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "591086742697",
+    "project_id": "mwitter-24a06",
+    "storage_bucket": "mwitter-24a06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591086742697:android:7c7428f335368fea2b8db8",
+        "android_client_info": {
+          "package_name": "com.study.flutter.netflix_clone.netflix_clone_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg-E0ACrmywusNcCZSuW0519wKsPbb4aY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
