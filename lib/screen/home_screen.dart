@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   late Stream<QuerySnapshot> streamData;
+  late List<Movie> moviesFromSnapshot;
 
   @override
   void initState() {
@@ -35,20 +36,20 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildBody(BuildContext context, List<DocumentSnapshot> snapshot) {
-    List<Movie> movies = snapshot.map((d) => Movie.fromSnapshot(d)).toList();
+    moviesFromSnapshot = snapshot.map((d) => Movie.fromSnapshot(d)).toList();
     return ListView(
       children: [
         Stack(
           children: [
-            CarouselImage(movies: movies),
+            CarouselImage(movies: moviesFromSnapshot),
             TopBar(),
           ],
         ),
         CircleSlider(
-          movies: movies,
+          movies: moviesFromSnapshot,
         ),
         BoxSlider(
-          movies: movies,
+          movies: moviesFromSnapshot,
         ),
       ],
     );

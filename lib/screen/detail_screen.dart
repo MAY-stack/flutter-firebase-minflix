@@ -126,6 +126,12 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   Positioned(
                     child: AppBar(
+                      leading: IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
                       backgroundColor: Colors.transparent,
                       elevation: 0,
                     ),

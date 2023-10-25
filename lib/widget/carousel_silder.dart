@@ -20,9 +20,7 @@ class _CarouselImageState extends State<CarouselImage> {
   int _currentPage = 0;
   late String _currentKeyword;
 
-  @override
-  void initState() {
-    super.initState();
+  void setMovies() {
     movies = widget.movies;
     images = movies.map((m) => Image.network(m.poster)).toList();
     keywords = movies.map((m) => m.keyword).toList();
@@ -32,6 +30,7 @@ class _CarouselImageState extends State<CarouselImage> {
 
   @override
   Widget build(BuildContext context) {
+    setMovies();
     return SizedBox(
       child: Column(
         children: [
@@ -63,6 +62,7 @@ class _CarouselImageState extends State<CarouselImage> {
                     children: [
                       likes[_currentPage]
                           ? IconButton(
+                              icon: Icon(Icons.check),
                               onPressed: () {
                                 setState(() {
                                   likes[_currentPage] = !likes[_currentPage];
@@ -71,9 +71,9 @@ class _CarouselImageState extends State<CarouselImage> {
                                       .update({'like': likes[_currentPage]});
                                 });
                               },
-                              icon: Icon(Icons.check),
                             ) // likes[_currentPage] 가 true
                           : IconButton(
+                              icon: Icon(Icons.add),
                               onPressed: () {
                                 setState(() {
                                   likes[_currentPage] = !likes[_currentPage];
@@ -82,7 +82,6 @@ class _CarouselImageState extends State<CarouselImage> {
                                       .update({'like': likes[_currentPage]});
                                 });
                               },
-                              icon: Icon(Icons.add),
                             ), // flase 일때
                       Text(
                         '내가 찜한 콘텐츠',
@@ -128,7 +127,7 @@ class _CarouselImageState extends State<CarouselImage> {
                           Navigator.of(context).push(
                             MaterialPageRoute<void>(
                               fullscreenDialog: true,
-                              builder: (BuildContext context) {
+                              builder: (context) {
                                 return DetailScreen(
                                   movie: movies[_currentPage],
                                 );
