@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone_test/screen/home_screen.dart';
-import 'package:netflix_clone_test/screen/like_screen.dart';
-import 'package:netflix_clone_test/screen/search_screen.dart';
-import 'package:netflix_clone_test/widget/bottom_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'screen/home_screen.dart';
+import 'screen/like_screen.dart';
+import 'screen/search_screen.dart';
+import 'widget/bottom_bar.dart';
+
+import 'screen/profile_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,12 +43,10 @@ class _MyAppState extends State<MyApp> {
               HomeScreen(),
               SearchScreen(),
               LikeScreen(),
-              SizedBox(
-                child: Text('more'),
-              ),
+              ProfileScreen(),
             ],
           ),
-          bottomNavigationBar: Bottom(),
+          bottomNavigationBar: BottomBar(),
         ),
       ),
     );

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 //상태 관리가 필요 없는 위젯이기 때문에 StatelessWidget으로 만듦
-class Bottom extends StatelessWidget {
-  const Bottom({super.key});
+class BottomBar extends StatelessWidget {
+  const BottomBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +47,11 @@ class Bottom extends StatelessWidget {
             ),
             Tab(
               icon: Icon(
-                Icons.list,
+                Icons.person,
                 size: 18,
               ),
               child: Text(
-                '더보기',
+                '프로필',
                 style: TextStyle(fontSize: 9),
               ),
             ),
