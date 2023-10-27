@@ -2,16 +2,18 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone_test/screen/detail_screen.dart';
 import '../model/model_movie.dart';
+import 'package:logger/logger.dart';
 
 class CarouselImage extends StatefulWidget {
   final List<Movie> movies;
-  CarouselImage({super.key, required this.movies});
+  CarouselImage({super.key, context, required this.movies});
 
   @override
   _CarouselImageState createState() => _CarouselImageState();
 }
 
 class _CarouselImageState extends State<CarouselImage> {
+  Logger logger = Logger();
   late List<Movie> movies;
   late List<Widget> images;
   late List<String> keywords;
@@ -25,7 +27,7 @@ class _CarouselImageState extends State<CarouselImage> {
     images = movies.map((m) => Image.network(m.poster)).toList();
     keywords = movies.map((m) => m.keyword).toList();
     likes = movies.map((m) => m.like).toList();
-    _currentKeyword = keywords[0];
+    _currentKeyword = keywords[_currentPage];
   }
 
   @override

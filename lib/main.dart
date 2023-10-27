@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
               SearchScreen(),
               LikeScreen(),
               SizedBox(
-                child: Center(child: Text('more')),
+                child: Text('more'),
               ),
             ],
           ),
